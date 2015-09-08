@@ -1,0 +1,161 @@
+$card-width : 75px;
+$card-height : 105px;
+
+$initial-position-bottom : 565px;
+$initial-position-right : 30px;
+
+$final-position-right : 650px;
+$final-position-bottom : -90px;
+
+#demo-frame{
+	width:700px;
+	height:700px;
+	border: 1px solid #e5e5e5;
+	position:relative;
+	overflow:hidden;
+}
+
+.card{
+	width:$card-width;
+	height:$card-height;
+	background: red;
+	border: 1px solid #fff;
+	position:absolute;
+	right:$initial-position-right;
+	bottom:$initial-position-bottom;
+	transform: perspective(200px) rotateX(60deg);
+	perspective-origin: 50% 75%;
+}
+
+
+@mixin lie-cards-flat() {
+	transform: rotate(60deg) skew(-30deg, -30deg);
+}
+
+@mixin stand-cards-up() {
+	transform: rotate(15deg) skew(15deg, 15deg);
+}
+
+$j: 52;
+
+$flat-bottom : $final-position-bottom + 165;
+
+@for $i from 1 through 5 {
+	
+	$standup-count-limit : $j - (6 - ( $i - 1));
+	$position-right : ;
+	
+	@while $j > $standup-count-limit {
+
+		$cardNo : $j - $standup-count-limit;
+		$card-bottom-position : $final-position-bottom + (108 * $i);
+		$card-right-position : $final-position-right - (45 * ($i - 1) ) - (90px * $cardNo); 
+		
+		$zIndex : 52 - $j;
+	
+	 	@keyframes movecard-#{$j} {
+	    	50% {
+	    		bottom: $card-bottom-position;
+	    		right: $card-right-position;
+	    		z-index: $zIndex;
+	    	}
+	    	75% {
+	    		bottom: $card-bottom-position;
+	    		right: $card-right-position;
+	    		transform: rotate(15deg);
+	    		z-index: $zIndex;
+	    	}
+	    	100% {
+	    		bottom: $card-bottom-position;
+	    		right: $card-right-position;
+	    		@include stand-cards-up();
+	    		z-index: $zIndex;
+	    	}
+		}
+		$j: $j - 1;
+	}
+	
+	$flat-count-limit : $j - (5 - ( $i - 1));
+	
+	@while $j > $flat-count-limit {
+
+		$cardNo : $j - $flat-count-limit;
+		$card-right-position : $final-position-right - (90px * $cardNo); 
+		
+		$card-row-bottom-position : $flat-bottom + (107 * ($i - 1));
+		$card-row-right-position : $card-right-position - (45 * ($i - 1) ) - 40px;
+
+		$zIndex : 52 - $j;
+
+ 		@keyframes movecard-#{$j} {
+    		50% {
+    			bottom: $card-row-bottom-position;
+    			right: $card-row-right-position;
+    			z-index: $zIndex
+    		}
+    		75% {
+    			bottom: $card-row-bottom-position;
+    			right: $card-row-right-position;
+    			z-index: $zIndex;
+   			}
+    		100% {
+    			bottom: $card-row-bottom-position;
+    			right: $card-row-right-position;
+    			z-index: $zIndex;
+    			@include lie-cards-flat();
+    		}
+    	}
+  		$j: $j - 1;
+	}
+}
+
+@mixin card-template($card-no, $animation-delay) {
+ 	bottom: $initial-position-bottom + $card-no; 
+ 	animation: movecard-#{$card-no} 5s forwards;
+ 	animation-delay: $animation-delay;
+}
+
+
+@for $j from 18 through 52 {
+  #card-#{$j} { 
+  	@include card-template($j,#{(52 -$j)}s);
+  }
+}
+
+
+@keyframes movecard-17 {
+	75% {
+		bottom: 560px;
+		right: 290px;
+		z-index: 52;
+		transform: rotate(15deg) skew(15deg, 15deg);
+	}
+	100% {
+		bottom: 557px;
+		right: 331px;
+		z-index: 52;
+		transform: rotate(7deg) skew(23deg, 23deg);
+	}
+}
+
+@keyframes movecard-16 {
+	75% {
+		bottom: 560px;
+		right: 380px;
+		z-index: 51;
+		transform: rotate(15deg) skew(15deg, 15deg);
+	}
+	100% {
+		bottom: 556px;
+		right: 355px;
+		z-index: 53;
+		transform: rotate(20deg) skew(10deg, 10deg);
+	}
+}
+#card-16 { 
+  	@include card-template(16,34s);
+}
+
+#card-17 { 
+  	@include card-template(17,35s);
+}
