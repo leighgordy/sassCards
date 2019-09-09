@@ -1,11 +1,21 @@
 {
   "name": "sassCards",
   "version": "2.0.0",
-  "private": true,
+  "main": "src/index.js",
   "scripts": {
     "build": "webpack --mode development",
     "serve": "webpack-dev-server"
   },
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/leighgordy/sassCards"
+    },
+  "author": "Leigh Gordon",
+  "bugs": {
+    "url": "https://github.com/leighgordy/sassCards/issues"
+  },
+  "license":"mit",
+  "homepage": "https://github.com/leighgordy/sassCards",
   "devDependencies": {
     "copy-webpack-plugin": "^5.0.4",
     "css-loader": "^3.2.0",
