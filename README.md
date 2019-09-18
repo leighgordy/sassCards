@@ -2,5 +2,5 @@
 to run locally
 ```
 npm install
-npm serve
+npm run serve
 ```
