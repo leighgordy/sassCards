@@ -14,7 +14,7 @@
   "bugs": {
     "url": "https://github.com/leighgordy/sassCards/issues"
   },
-  "license": "mit",
+  "license": "MIT",
   "homepage": "https://github.com/leighgordy/sassCards",
   "devDependencies": {
     "copy-webpack-plugin": "^6.2.1",
@@ -28,9 +28,5 @@
     "webpack-cli": "^4.1.0",
     "webpack-dev-server": "^3.11.0",
     "style-loader": "^2.0.0"
-  },
-  "dependencies": {
-    "bootstrap": "^3.4.1",
-    "bootstrap-sass": "^3.4.1"
   }
 }
