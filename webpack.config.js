@@ -41,10 +41,11 @@ module.exports = {
       filename: 'index.html',
       template: 'assets/index.html'
     }),
-     new CopyWebpackPlugin([
+     new CopyWebpackPlugin({
+       patterns: [
         { from: 'assets/robots.txt' },
         { from: 'assets/apple-touch-icon.png' },
         { from: 'assets/favicon.ico' },
-     ]),
+     ]}),
   ]
 };

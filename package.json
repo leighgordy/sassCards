@@ -4,30 +4,30 @@
   "main": "src/index.js",
   "scripts": {
     "build": "webpack --mode development",
-    "serve": "webpack-dev-server"
+    "serve": "webpack serve"
   },
   "repository": {
-      "type": "git",
-      "url": "https://github.com/leighgordy/sassCards"
-    },
+    "type": "git",
+    "url": "https://github.com/leighgordy/sassCards"
+  },
   "author": "Leigh Gordon",
   "bugs": {
     "url": "https://github.com/leighgordy/sassCards/issues"
   },
-  "license":"mit",
+  "license": "mit",
   "homepage": "https://github.com/leighgordy/sassCards",
   "devDependencies": {
-    "copy-webpack-plugin": "^5.0.4",
-    "css-loader": "^3.2.0",
-    "file-loader": "^4.2.0",
-    "html-webpack-plugin": "^3.2.0",
-    "node-sass": "^4.12.0",
-    "resolve-url-loader": "^3.1.0",
-    "sass-loader": "^8.0.0",
-    "style-loader": "^1.0.0",
-    "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.8",
-    "webpack-dev-server": "^3.8.0"
+    "copy-webpack-plugin": "^6.2.1",
+    "css-loader": "^5.0.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^4.5.0",
+    "node-sass": "^4.14.1",
+    "resolve-url-loader": "^3.1.2",
+    "sass-loader": "^10.0.4",
+    "webpack": "^5.3.1",
+    "webpack-cli": "^4.1.0",
+    "webpack-dev-server": "^3.11.0",
+    "style-loader": "^2.0.0"
   },
   "dependencies": {
     "bootstrap": "^3.4.1",
